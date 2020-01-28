@@ -1,13 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <ion-tabs>
+      <ion-tab tab="/">
+        <Commune/>
+      </ion-tab>
+
+      <ion-tab tab="district">
+        <District/>
+      </ion-tab>
+
+      <ion-tab tab="region">
+        <Region/>
+      </ion-tab>
+
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="/">
+          <ion-label>Commune</ion-label>
+          <ion-icon name="ios-navigate"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="district">
+          <ion-label>Département</ion-label>
+          <ion-icon name="ios-pin"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="region">
+          <ion-label>Régions</ion-label>
+          <ion-icon name="ios-map"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
   </div>
 </template>
-
+<script>
+    import Commune from '@/components/Home.vue'
+    import District from '@/components/district.vue'
+    import Region from '@/components/region.vue'
+    export default {
+        components: {
+            Commune,
+            District,
+            Region
+        }
+    }
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
